@@ -1,0 +1,23 @@
+# Common Files
+.DS_Store
+
+# IDEs
+.idea/
+.settings/
+.classpath
+.project
+*.iml
+
+# Maven
+target/
+
+# Java
+*.class
+
+# Visual Studio
+.vscode
+
+# Takari Maven Wrapper
+/.mvn/
+/mvnw.cmd
+/mvnw
