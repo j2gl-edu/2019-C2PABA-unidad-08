@@ -23,22 +23,22 @@ public class MainSearch {
         return index;
     }
 
-    // this is bad fir array:  0, 0, 0, 1, 4, 4, 7, 7, 7, 8 and search for 5
     private static int binarySearch(int[] data, int value) {
-        int i = 0;
-        int j = data.length - 1;
-        int k;
+        int min = 0;
+        int max = data.length - 1;
 
-        do {
-            k = (i + j) / 2;
-            if (data[k] <= value) {
-                i = k + 1;
+        while (min <= max) {
+            int middle = (min + max) / 2;
+            if (data[middle] < value) {
+                min = middle + 1;
+            } else if (data[middle] > value) {
+                max = middle - 1;
+            } else if (data[middle] == value) {
+                return middle;
             }
-            if (data[k] >= value) {
-                j = k - 1;
-            }
-        } while (i <= j);
-        return k;
+        }
+
+        return -1;
     }
 
     private static int[] generateArray(int size, int bound) {
@@ -61,14 +61,14 @@ public class MainSearch {
         int diff;
 
         start = LocalDateTime.now();
-        System.out.println("El dato esta en la posicion: " + sequentialSearch(data, value));
+        System.out.println("El dato " + value + " esta en la posicion: " + sequentialSearch(data, value));
         diff = java.time.Duration.between(start, LocalDateTime.now()).getNano();
-        System.out.println("La busqueda tardo : " + diff + " nonosegundos");
+        System.out.println("La busqueda secuencial tardo : " + diff + " nonosegundos");
 
         start = LocalDateTime.now();
-        System.out.println("El dato esta en la posicion: " + binarySearch(data, value));
+        System.out.println("El dato " + value + " esta en la posicion: " + binarySearch(data, value));
         diff = java.time.Duration.between(start, LocalDateTime.now()).getNano();
-        System.out.println("La busqueda tardo : " + diff + " nonosegundos");
+        System.out.println("La busqueda binaria tardo : " + diff + " nonosegundos");
 
     }
 
@@ -81,27 +81,16 @@ public class MainSearch {
     }
 
     public static void main(String args[]) {
-//        int[] data = {5, 8, 42, 34, 553, 6, 43, 99};
-//
-//        System.out.println("El dato esta en la posicion: " + sequentialSearch(data, 34));
-//        System.out.println("El dato esta en la posicion: " + sequentialSearch(data, 7));
-//        System.out.println("El dato esta en la posicion: " + sequentialSearch(data, 5));
-//        System.out.println("El dato esta en la posicion: " + sequentialSearch(data, 99));
-
-//        int[] data2 = {2, 8, 14, 20, 30, 32, 34, 50, 67, 100, 150, 430, 599, 653, 700, 750};
-//        System.out.println("El dato esta en la posicion: " + binarySearch(data2, 750));
-
-        calculate(10, 5);
+        Random random = new Random();
+        calculate(10, random.nextInt(10));
         System.out.println();
 
 
-//        calculate(100, 50);
-//        System.out.println();
-//
-//        calculate(1000, 500);
-//        System.out.println();
-//
+        calculate(100, random.nextInt(100));
+        System.out.println();
 
+        calculate(1000, random.nextInt(1000));
+        System.out.println();
 
     }
 }
