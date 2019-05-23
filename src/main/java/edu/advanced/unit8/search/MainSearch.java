@@ -1,4 +1,4 @@
-package edu.advanced.unit8;
+package edu.advanced.unit8.search;
 
 import edu.advanced.unit8.sort.QuickSort;
 

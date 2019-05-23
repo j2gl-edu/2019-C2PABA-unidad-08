@@ -39,7 +39,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>edu.advanced.unit8.MainSearch</mainClass>
+                            <mainClass>edu.advanced.unit8.search.MainSearch</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
