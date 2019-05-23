@@ -23,17 +23,17 @@ public class MainSearch {
         return index;
     }
 
-    private static int binarySearch(int[] data, int value) {
+    private static int binarySearch(int[] sortedData, int value) {
         int min = 0;
-        int max = data.length - 1;
+        int max = sortedData.length - 1;
 
         while (min <= max) {
             int middle = (min + max) / 2;
-            if (data[middle] < value) {
+            if (sortedData[middle] < value) {
                 min = middle + 1;
-            } else if (data[middle] > value) {
+            } else if (sortedData[middle] > value) {
                 max = middle - 1;
-            } else if (data[middle] == value) {
+            } else if (sortedData[middle] == value) {
                 return middle;
             }
         }
